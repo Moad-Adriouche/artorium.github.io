@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTORIUM - Accueil</title>
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="image/logo.png" alt="ARTORIUM" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" data-i18n="navHome">Accueil</a></li>
+                <li><a href="main.html" data-i18n="navGallery">Galerie</a></li>
+                <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+            </ul>
+            <div class="nav-lang">
+                <img src="icons/globe.svg" alt="Language" class="icon">
+                <select id="langSelect">
+                    <option value="fr">Fr</option>
+                    <option value="ar">عربي</option>
+                    <option value="en">Eng</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="image/logo.png" alt="ARTORIUM" class="hero-logo">
+                <h1 data-i18n="heroTitle">Bienvenue sur ARTORIUM</h1>
+                <p data-i18n="heroSubtitle">Découvrez des milliers d'oeuvres d'art du Art Institute of Chicago. Explorez, recherchez et apprenez l'histoire derrière chaque chef-d'oeuvre.</p>
+                <div class="hero-buttons">
+                    <a href="main.html" class="btn btn-primary" data-i18n="btnExplore">Explorer la Galerie</a>
+                    <a href="contact.html" class="btn btn-secondary" data-i18n="btnContact">Nous Contacter</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">100K+</span>
+                    <span class="stat-label" data-i18n="statArtworks">Oeuvres</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label" data-i18n="statLangs">Langues</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Free</span>
+                    <span class="stat-label" data-i18n="statApi">Open API</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- features -->
+    <section class="features">
+        <div class="container">
+            <h2 data-i18n="featuresTitle">Ce que nous offrons</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icons/palette.svg" alt="Art">
+                    </div>
+                    <h3 data-i18n="feat1Title">Collection Vaste</h3>
+                    <p data-i18n="feat1Desc">Accédez à plus de 100,000 oeuvres d'art avec images haute résolution et informations détaillées.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icons/globe.svg" alt="Multilingual">
+                    </div>
+                    <h3 data-i18n="feat2Title">Multilingue</h3>
+                    <p data-i18n="feat2Desc">Interface disponible en Français, Arabe et Anglais pour une accessibilité maximale.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icons/search.svg" alt="Search">
+                    </div>
+                    <h3 data-i18n="feat3Title">Recherche Avancée</h3>
+                    <p data-i18n="feat3Desc">Filtrez par type, artiste, date ou recherchez par mot-clé parmi toute la collection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- preview -->
+    <section class="preview">
+        <div class="container">
+            <h2 data-i18n="previewTitle">Aperçu de la Collection</h2>
+            <div class="preview-grid" id="previewGrid">
+                <!-- js -->
+            </div>
+            <div class="preview-cta">
+                <a href="main.html" class="btn btn-primary" data-i18n="btnSeeAll">Voir Toute la Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <img src="image/logo.png" alt="ARTORIUM" class="footer-logo">
+                <p data-i18n="footerDesc">Plateforme éducative développée par Moad Adriouche dans le cadre du module Développement Web - EST Guelmim.</p>
+            </div>
+            <div class="footer-bottom">
+                <p> 2026 Moad Adriouche - EST Guelmim</p>
+                <p data-i18n="poweredBy">Propulsé par Art Institute of Chicago API</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTORIUM - Contact</title>
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="image/logo.png" alt="ARTORIUM" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="navHome">Accueil</a></li>
+                <li><a href="main.html" data-i18n="navGallery">Galerie</a></li>
+                <li><a href="contact.html" class="active" data-i18n="navContact">Contact</a></li>
+            </ul>
+            <div class="nav-lang">
+                <img src="icons/globe.svg" alt="Language" class="icon">
+                <select id="langSelect">
+                    <option value="fr">Fr</option>
+                    <option value="ar">عربي</option>
+                    <option value="en">Eng</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- entete -->
+    <header class="page-header">
+        <div class="container">
+            <h1 data-i18n="contactTitle">Contactez-Nous</h1>
+            <p data-i18n="contactSubtitle">Une question, une suggestion ? N'hésitez pas à nous écrire.</p>
+        </div>
+    </header>
+
+    <!-- contenu -->
+    <main class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <img src="icons/map-pin.svg" alt="Location">
+                        </div>
+                        <div class="info-content">
+                            <h3 data-i18n="addressLabel">Adresse</h3>
+                            <p>EST Guelmim, Avenue Maachar Al Balkhi</p>
+                            <p>Guelmim, Maroc</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <img src="icons/user.svg" alt="Email">
+                        </div>
+                        <div class="info-content">
+                            <h3 data-i18n="emailLabel">Email</h3>
+                            <p>moadadriouche044@gmail.com</p>
+                            <p>contact@artorium.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <img src="image/customer-service.png" alt="Phone">
+                        </div>
+                        <div class="info-content">
+                            <h3 data-i18n="phoneLabel">Téléphone</h3>
+                            <p></p>+212 7 76 31 93 91</p>
+                        </div>
+                    </div>
+
+                    <div class="developer-card">
+                        <img src="image/pp1.jpeg" alt="Developer" class="dev-avatar">
+                        <div class="dev-info">
+                            <h3>Moad Adriouche</h3>
+                            <p data-i18n="devRole">Développeur Web</p>
+                            <p data-i18n="devSchool">EST Guelmim - Département Génie Informatique</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- formulaire -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-i18n="formName">Nom Complet</label>
+                            <input type="text" id="name" name="name" required data-i18n-placeholder="phName" placeholder="Votre nom">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" data-i18n="formEmail">Email</label>
+                            <input type="email" id="email" name="email" required data-i18n-placeholder="phEmail" placeholder="votre@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" data-i18n="formSubject">Sujet</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" data-i18n="phSubject">Choisir un sujet</option>
+                                <option value="bug" data-i18n="optBug">Signaler un bug</option>
+                                <option value="feature" data-i18n="optFeature">Suggestion</option>
+                                <option value="artwork" data-i18n="optArtwork">Info sur une oeuvre</option>
+                                <option value="other" data-i18n="optOther">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" data-i18n="formMessage">Message</label>
+                            <textarea id="message" name="message" rows="6" required data-i18n-placeholder="phMessage" placeholder="Votre message..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full" data-i18n="btnSend">Envoyer le Message</button>
+                    </form>
+
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <img src="image/success.png" alt="Success">
+                        <h3 data-i18n="successTitle">Message Envoyé !</h3>
+                        <p data-i18n="successText">Merci de nous avoir contacté. Nous vous répondrons dans les plus brefs délais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- carte -->
+    <section class="map-section">
+        <div class="container">
+            <h2 data-i18n="mapTitle">Notre Localisation</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.761044434224!2d-10.08585382379301!3d29.00087407546682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb51d2d017d9e6f%3A0xfba48ed3d16e2f22!2sEST%20%3A%20%C3%89cole%20Sup%C3%A9rieure%20de%20Technologie_Guelmim!5e0!3m2!1sfr!2sma!4v1714486400000!5m2!1sfr!2sma"
+                    width="100%" 
+                    height="400" 
+                    style="border:0; border-radius: 12px;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    data-i18n-title="mapTitle">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <img src="image/logo.png" alt="ARTORIUM" class="footer-logo">
+                <p data-i18n="footerDesc">Plateforme éducative développée par Moad Adriouche dans le cadre du module Développement Web - EST Guelmim.</p>
+            </div>
+            <div class="footer-bottom">
+                <p> 2026 Moad Adriouche - EST Guelmim</p>
+                <p data-i18n="poweredBy">Propulsé par Art Institute of Chicago API</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
