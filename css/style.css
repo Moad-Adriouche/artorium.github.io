@@ -333,9 +333,7 @@ img {
     margin: 3px 0;
 }
 
-/* ============================================
-   PAGE GALERIE - HEADER
-   ============================================ */
+/* PAGE GALERIE - HEADER */
 
 .gallery-header {
     background-color: var(--couleur-principale);
@@ -354,9 +352,7 @@ img {
     color: var(--couleur-clair);
 }
 
-/* ============================================
-   GALERIE - CONTROLS & FILTRES
-   ============================================ */
+/* GALERIE - CONTROLS & FILTRES */
 
 .main {
     padding: 40px 0;
@@ -887,9 +883,7 @@ img {
     line-height: 1.6;
 }
 
-/* ============================================
-   SECTION CARTE (MAP)
-   ============================================ */
+/* SECTION CARTE (MAP) */
 
 .map-section {
     padding: 60px 0;
@@ -909,8 +903,7 @@ img {
     box-shadow: var(--ombre);
 }
 
-/* ============================================
-   RESPONSIVE - TABLETTE */
+/* TABLETTE */
 
 @media (max-width: 900px) {
     .features-grid {
