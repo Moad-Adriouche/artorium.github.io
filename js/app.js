@@ -67,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             phoneLabel: "Téléphone",
             devRole: "Développeur Web",
             devSchool: "EST Guelmim - Département Informatique",
-            noResults: "Aucune oeuvre trouvée."
+            noResults: "Aucune oeuvre trouvée.",
+            photographLimitReached: "Limite atteinte : 100 photographies affichées. Essayez un autre filtre pour découvrir d'autres styles."
         },
         en: {
             navHome: "Home",
@@ -131,7 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
             phoneLabel: "Phone",
             devRole: "Web Developer",
             devSchool: "EST Guelmim - Computer Science Department",
-            noResults: "No artworks found."
+            noResults: "No artworks found.",
+            photographLimitReached: "Limit reached: 100 photographs displayed. Try another filter to explore different styles."
         },
         ar: {
             navHome: "الرئيسية",
@@ -195,7 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
             phoneLabel: "الهاتف",
             devRole: "مطور ويب",
             devSchool: "المدرسة العليا للتكنولوجيا بكلميم - قسم المعلوماتية",
-            noResults: "لم يتم العثور على أي عمل فني."
+            noResults: "لم يتم العثور على أي عمل فني.",
+            photographLimitReached: "تم الوصول إلى الحد الأقصى: 100 صورة فوتوغرافية معروضة. جرّب مرشّحاً آخر لاستكشاف أسلوب مختلف."
         }
     };
 
@@ -260,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     previewGrid.appendChild(card);
                 });
             })
-            .catch(err => console.error('Home load error:', err));
+            .catch(err => console.error('Erreur de chargement de l\'accueil :', err));
     }
 
     if (galleryGrid) {
@@ -340,14 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (!itemsWithImages || !itemsWithImages.length) {
                 galleryGrid.innerHTML = `<p class="empty-state">${translations[currentLang]?.noResults || translations.fr.noResults}</p>`;
-                if (artworkCountDisplay) {
-                    artworkCountDisplay.textContent = '0';
-                }
                 return;
-            }
-
-            if (artworkCountDisplay) {
-                artworkCountDisplay.textContent = totalArtworkCount;
             }
 
             galleryGrid.innerHTML = itemsWithImages.map(item => {
@@ -411,10 +407,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // photo
                 if (currentFilter === 'Photograph' && photographItemsLoaded >= PHOTOGRAPH_LIMIT) {
-                    galleryGrid.innerHTML = `<p class="empty-state">Maximum of ${PHOTOGRAPH_LIMIT} photographs reached. Please try another filter.</p>`;
-                    if (artworkCountDisplay) {
-                        artworkCountDisplay.textContent = PHOTOGRAPH_LIMIT;
-                    }
+                    const limitMessage = translations[currentLang]?.photographLimitReached || translations.en.photographLimitReached;
+                    galleryGrid.innerHTML = `<p class="empty-state">${limitMessage}</p>`;
                     setLoading(false);
                     return;
                 }
@@ -454,19 +448,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     pageInfo.textContent = `Page ${page}`;
                 }
             } catch (error) {
-                console.error('Gallery load error:', error);
-                galleryGrid.innerHTML = '<p class="empty-state">Unable to load artworks.</p>';
+                console.error('Erreur de chargement de la galerie :', error);
+                galleryGrid.innerHTML = '<p class="empty-state">Impossible de charger les oeuvres.</p>';
             } finally {
                 setLoading(false);
             }
         };
 
         window.openModal = async (id) => {
-            console.log('openModal called with id:', id);
+            console.log('openModal appelé avec id :', id);
             const modalElement = document.getElementById('artworkModal');
-            console.log('Modal element found:', modalElement);
+            console.log('Élément modal trouvé :', modalElement);
             if (!modalElement) {
-                console.error('Modal element not found!');
+                console.error('Élément modal non trouvé !');
                 return;
             }
             try {
@@ -474,11 +468,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
                 const item = data.data;
                 if (!item) {
-                    console.error('No item data received');
+                    console.error('Aucune donnée d\'élément reçue');
                     return;
                 }
 
-                console.log('Item data:', item);
+                console.log('Données de l\'élément :', item);
 
                 const img = modalElement.querySelector('#modalImg');
                 const title = modalElement.querySelector('#modalTitle');
@@ -501,7 +495,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (type) type.textContent = item.medium_display || item.classification_title || 'Unknown type';
 
                 if (description) {
-                    const wikiDescription = await fetchWikipediaDescription(item.title);
+                    const artistName = item.artist_display || item.artist_title || '';
+                    const wikiDescription = await fetchWikipediaDescription(item.title, artistName);
                     if (wikiDescription) {
                         description.textContent = wikiDescription;
                     } else {
@@ -519,25 +514,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 modalElement.classList.add('active');
-                console.log('Modal should now be visible');
+                console.log('Le modal devrait maintenant être visible');
             } catch (error) {
-                console.error('Modal load error:', error);
+                console.error('Erreur de chargement du modal :', error);
             }
         };
 
-        const fetchWikipediaDescription = async (title) => {
+        const fetchWikipediaDescription = async (title, artist) => {
             try {
+                // Recherche avec le titre et l'artiste
+                const searchQuery = artist ? `${title} ${artist}`.trim() : title;
                 const response = await fetch(
-                    `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+                    `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(searchQuery)}`
                 );
-                if (!response.ok) return null;
-                const data = await response.json();
-                if (data.extract) {
-                    return data.extract.split('.').slice(0, 2).join('. ') + '.';
+                
+                // Si succès avec artiste + titre, retourner le résultat
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.extract) {
+                        return data.extract.split('.').slice(0, 2).join('. ') + '.';
+                    }
                 }
+                
+                // Recherche avec juste le titre si la recherche par artiste n'a pas fonctionné
+                if (artist) {
+                    const fallbackResponse = await fetch(
+                        `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+                    );
+                    if (fallbackResponse.ok) {
+                        const fallbackData = await fallbackResponse.json();
+                        if (fallbackData.extract) {
+                            return fallbackData.extract.split('.').slice(0, 2).join('. ') + '.';
+                        }
+                    }
+                }
+                
                 return null;
             } catch (error) {
-                console.error('Wikipedia fetch error:', error);
+                console.error('Erreur de récupération Wikipedia :', error);
                 return null;
             }
         };
@@ -588,9 +602,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayedArtworkIds.clear();
                 photographItemsLoaded = 0;
                 totalArtworkCount = 0;
-                if (artworkCountDisplay) {
-                    artworkCountDisplay.textContent = '0';
-                }
                 loadGallery(currentQuery, currentPage);
             });
         });
