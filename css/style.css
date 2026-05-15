@@ -1,6 +1,5 @@
 
-
-/* couleurs */
+/* couleurs*/
 :root {
     --couleur-principale: #2c3e50;
     --couleur-accent: #e74c3c;
@@ -11,7 +10,6 @@
     --couleur-fond: #f5f6fa;
     --ombre: 0 2px 10px rgba(0, 0, 0, 0.1);
     --rayon: 8px;
-}
 
 /* reset */
 * {
@@ -903,7 +901,7 @@ img {
     box-shadow: var(--ombre);
 }
 
-/* TABLETTE */
+/* RESPONSIVE - TABLETTE */
 
 @media (max-width: 900px) {
     .features-grid {
@@ -950,6 +948,12 @@ img {
 
     .nav-links {
         gap: 15px;
+    }
+
+    .nav-lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     }
 
     .hero h1 {
