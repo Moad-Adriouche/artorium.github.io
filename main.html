@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARTORIUM - Galerie</title>
-    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="icon" type="image/png" href="icons/logo.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="nav-logo">
-                <img src="image/logo.png" alt="ARTORIUM" class="logo-img">
+                <img src="icons/logo.png" alt="ARTORIUM" class="logo-img">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html" data-i18n="navHome">Accueil</a></li>
@@ -20,7 +20,7 @@
                 <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
             </ul>
             <div class="nav-lang">
-                <img src="icons/globe.svg" alt="Language" class="icon">
+                <img src="icons/globe.png" alt="Language" class="icon">
                 <select id="langSelect">
                     <option value="fr">Fr</option>
                     <option value="ar">عربي</option>
@@ -44,12 +44,8 @@
             <!-- controles -->
             <div class="controls-bar">
                 <div class="search-box">
-                    <img src="icons/search.svg" alt="Search" class="icon">
+                    <img src="icons/chercher.png" alt="Search" class="icon">
                     <input type="text" id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="Rechercher une oeuvre...">
-                </div>
-                <div class="artwork-count">
-                    <span id="artworkCount">0</span>
-                    <span data-i18n="artworksAvailable"> oeuvres disponibles</span>
                 </div>
             </div>
 
@@ -104,7 +100,7 @@
                     <h2 id="modalTitle"></h2>
                     <div class="meta-grid">
                         <div class="meta-item">
-                            <img src="icons/user.svg" alt="Artist">
+                            <img src="icons/artiste.png" alt="Artist">
                             <div>
                                 <span class="meta-label" data-i18n="artist">Artiste</span>
                                 <p id="modalArtist"></p>
@@ -118,7 +114,7 @@
                             </div>
                         </div>
                         <div class="meta-item">
-                            <img src="icons/map-pin.svg" alt="Origin">
+                            <img src="icons/broche.png" alt="Origin">
                             <div>
                                 <span class="meta-label" data-i18n="origin">Origine</span>
                                 <p id="modalOrigin"></p>
