@@ -40,5 +40,5 @@ cd artorium.github.io
 
 ## Auteur
 
-**Moad Adriouche and Yassine Ahnine** — EST Guelmim, Département Génie Informatique  
-Module : Développement Web: JavaScript Avancé — 2025/26
+**Moad Adriouche and Yassine Ahnin** — EST Guelmim, Département Génie Informatique  
+**Module** : Développement Web: JavaScript Avancé — 2025/26
