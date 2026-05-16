@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             noResults: "Aucune oeuvre trouvée.",
             photographLimitReached: "Limite atteinte : 100 photographies affichées. Essayez un autre filtre pour découvrir d'autres styles.",
             moad:"Moad Adriouche",
-            yassin:"Yassin Ahnin"
+            yassin:"Yassin Ahnine"
 
         },
         en: {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             noResults: "No artworks found.",
             photographLimitReached: "Limit reached: 100 photographs displayed. Try another filter to explore different styles.",
             moad:"Moad Adriouche",
-            yassin:"Yassin Ahnin"
+            yassin:"Yassin Ahnine"
         },
         ar: {
             navHome: "الرئيسية",
