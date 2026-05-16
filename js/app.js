@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feat3Desc: "Filtrez par type, artiste, date ou recherchez par mot-clé parmi toute la collection.",
             previewTitle: "Aperçu de la Collection",
             btnSeeAll: "Voir Toute la Collection",
-            footerDesc: "Plateforme éducative développée par Moad Adriouche et Yassin Ahnine dans le cadre du module Développement Web - EST Guelmim.",
+            footerDesc: "Plateforme éducative développée par Moad Adriouche et Yassin Ahnin dans le cadre du module Développement Web - EST Guelmim.",
             poweredBy: "Propulsé par Art Institute of Chicago API",
             galleryTitle: "Galerie d'Art",
             gallerySubtitle: "Explorez les chefs-d'oeuvre du Art Institute of Chicago",
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             noResults: "Aucune oeuvre trouvée.",
             photographLimitReached: "Limite atteinte : 100 photographies affichées. Essayez un autre filtre pour découvrir d'autres styles.",
             moad:"Moad Adriouche",
-            yassin:"Yassin Ahnine"
+            yassin:"Yassin Ahnin"
 
         },
         en: {
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feat3Desc: "Filter by type, artist, date or search by keyword across the entire collection.",
             previewTitle: "Collection Preview",
             btnSeeAll: "See the Full Collection",
-            footerDesc: "Educational platform developed by Moad Adriouche and Yassin Ahnine for the Web Development module - EST Guelmim.",
+            footerDesc: "Educational platform developed by Moad Adriouche and Yassin Ahnin for the Web Development module - EST Guelmim.",
             poweredBy: "Powered by the Art Institute of Chicago API",
             galleryTitle: "Art Gallery",
             gallerySubtitle: "Explore masterpieces from the Art Institute of Chicago",
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             noResults: "No artworks found.",
             photographLimitReached: "Limit reached: 100 photographs displayed. Try another filter to explore different styles.",
             moad:"Moad Adriouche",
-            yassin:"Yassin Ahnine"
+            yassin:"Yassin Ahnin"
         },
         ar: {
             navHome: "الرئيسية",
@@ -282,7 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const pageInfo = document.getElementById('pageInfo');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const artworkCountDisplay = document.getElementById('artworkCount');
 
         let currentQuery = '';
         let currentFilter = 'all';
@@ -290,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const limit = 18;
         const PHOTOGRAPH_LIMIT = 100;
         let photographItemsLoaded = 0;
-        let totalArtworkCount = 0;
+
         // filtre
         const filterQueryMap = {
             all: '',
@@ -594,9 +593,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (searchInput) {
             searchInput.addEventListener('input', (event) => {
-                currentQuery = event.target.value;
-                currentPage = 1;
-                displayedArtworkIds.clear();                totalArtworkCount = 0;                loadGallery(currentQuery, currentPage);
+                    currentQuery = event.target.value;
+                    currentPage = 1;
+                    displayedArtworkIds.clear();
+                    loadGallery(currentQuery, currentPage);
             });
         }
 
@@ -608,7 +608,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentPage = 1;
                 displayedArtworkIds.clear();
                 photographItemsLoaded = 0;
-                totalArtworkCount = 0;
                 loadGallery(currentQuery, currentPage);
             });
         });
